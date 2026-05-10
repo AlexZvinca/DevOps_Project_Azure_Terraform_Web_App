@@ -13,3 +13,11 @@
 crash.log
 crash.*.log
 *.log
+
+# Terraform plan output files
+*.tfplan
+*.plan
+
+# Windows system files
+Thumbs.db
+desktop.ini
