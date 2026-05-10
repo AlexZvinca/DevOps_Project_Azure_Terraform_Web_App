@@ -1,4 +1,4 @@
-# DevOps_Project_Azure_Terraform_Web_App
+# Deployment of a web app through Azure, using Infrastructure as Code - Terraform
 
 This project demonstrates how to deploy a static web application to Microsoft Azure using Infrastructure as Code.
 
@@ -63,6 +63,7 @@ The same Terraform modules are reused for both environments.
 
 ## Repository Structure
 
+```text
 DevOps_Project_Azure_Terraform_Web_App/
 │
 ├── app/
@@ -82,6 +83,7 @@ DevOps_Project_Azure_Terraform_Web_App/
 │
 ├── README.md
 └── .gitignore
+```
 
 ## Terraform Modules
 
@@ -142,5 +144,7 @@ terraform plan
 terraform apply
 ```
 
-The static web application can be opened, for either environment, using: 
+The static web application can be opened, for either environment, using:
+```text
 http://<public-ip-address>
+```
