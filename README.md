@@ -68,8 +68,8 @@ DevOps_Project_Azure_Terraform_Web_App/
 │
 ├── app/
 │   ├── index.html
-│   ├── style.css
-│   └── script.js
+│   └── style.css
+│
 │
 ├── terraform/
 │   ├── modules/
