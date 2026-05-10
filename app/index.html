@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Azure Terraform Static Web App</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>Azure Terraform Static Web App</h1>
+      <p>
+        This web application was deployed using Infrastructure as Code with Terraform.
+      </p>
+
+      <div class="badge" id="environment-badge">
+        Environment: Local
+      </div>
+    </section>
+
+    <section class="card-grid">
+      <article class="card">
+        <h2>Cloud Provider</h2>
+        <p>Microsoft Azure</p>
+      </article>
+
+      <article class="card">
+        <h2>Infrastructure as Code</h2>
+        <p>Terraform</p>
+      </article>
+
+      <article class="card">
+        <h2>Web Server</h2>
+        <p>Nginx on Azure Linux VM</p>
+      </article>
+
+      <article class="card">
+        <h2>Storage</h2>
+        <p>Azure Storage Account</p>
+      </article>
+    </section>
+
+    <section class="info">
+      <h2>Project Goal</h2>
+      <p>
+        The goal of this project is to provision cloud infrastructure reproducibly
+        across staging and production environments using Terraform.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      DevOps Project &copy; <span id="year"></span>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
