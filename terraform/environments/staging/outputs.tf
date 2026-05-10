@@ -37,3 +37,13 @@ output "website_url" {
   description = "HTTP URL of the deployed static web app"
   value       = "http://${module.network.public_ip_address}"
 }
+
+output "storage_account_name" {
+  description = "Name of the staging Azure Storage Account"
+  value       = module.storage.storage_account_name
+}
+
+output "storage_container_name" {
+  description = "Name of the staging Blob Storage container"
+  value       = module.storage.storage_container_name
+}

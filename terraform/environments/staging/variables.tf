@@ -49,3 +49,8 @@ variable "ssh_public_key" {
   type        = string
   sensitive   = true
 }
+
+variable "storage_account_name" {
+  description = "Globally unique Azure Storage Account name"
+  type        = string
+}

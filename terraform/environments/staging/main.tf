@@ -44,3 +44,13 @@ module "compute" {
   admin_username       = var.admin_username
   ssh_public_key       = var.ssh_public_key
 }
+
+module "storage" {
+  source = "../../modules/storage"
+
+  project_name         = var.project_name
+  environment          = var.environment
+  location             = var.location
+  resource_group_name  = azurerm_resource_group.main.name
+  storage_account_name = var.storage_account_name
+}
