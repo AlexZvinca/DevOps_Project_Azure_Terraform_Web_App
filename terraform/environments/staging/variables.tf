@@ -33,3 +33,19 @@ variable "ssh_source_address_prefix" {
   description = "IP address range allowed to SSH into the VM"
   type        = string
 }
+
+variable "vm_size" {
+  description = "Azure VM size for the staging environment"
+  type        = string
+}
+
+variable "admin_username" {
+  description = "Admin username for the Linux VM"
+  type        = string
+}
+
+variable "ssh_public_key" {
+  description = "Public SSH key used to connect to the Linux VM"
+  type        = string
+  sensitive   = true
+}

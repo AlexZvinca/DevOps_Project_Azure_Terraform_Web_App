@@ -1,0 +1,149 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - nginx
+
+write_files:
+  - path: /var/www/html/index.html
+    content: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Azure Terraform Static Web App</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <main class="container">
+          <section class="hero">
+            <h1>Azure Terraform Static Web App</h1>
+            <p>This web application was deployed using Infrastructure as Code with Terraform.</p>
+            <div class="badge">Environment: ${environment}</div>
+          </section>
+
+          <section class="card-grid">
+            <article class="card">
+              <h2>Cloud Provider</h2>
+              <p>Microsoft Azure</p>
+            </article>
+
+            <article class="card">
+              <h2>Infrastructure as Code</h2>
+              <p>Terraform</p>
+            </article>
+
+            <article class="card">
+              <h2>Web Server</h2>
+              <p>Nginx on Azure Linux VM</p>
+            </article>
+
+            <article class="card">
+              <h2>Project</h2>
+              <p>${project}</p>
+            </article>
+          </section>
+
+          <section class="info">
+            <h2>Project Goal</h2>
+            <p>
+              The goal of this project is to provision cloud infrastructure reproducibly
+              across staging and production environments using Terraform.
+            </p>
+          </section>
+        </main>
+
+        <footer>
+          <p>DevOps Project deployed with Terraform</p>
+        </footer>
+      </body>
+      </html>
+
+  - path: /var/www/html/style.css
+    content: |
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f7fb;
+        color: #1f2937;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1100px, 90%);
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 56px 24px;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        margin-bottom: 32px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        color: #0f172a;
+        margin-bottom: 16px;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        color: #475569;
+        margin-bottom: 24px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        font-weight: bold;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 32px;
+      }
+
+      .card,
+      .info {
+        background: white;
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+      }
+
+      .card h2,
+      .info h2 {
+        color: #0f172a;
+        margin-bottom: 10px;
+      }
+
+      .card p,
+      .info p {
+        color: #475569;
+      }
+
+      footer {
+        text-align: center;
+        padding: 24px;
+        color: #64748b;
+      }
+
+runcmd:
+  - systemctl enable nginx
+  - systemctl restart nginx

@@ -22,3 +22,18 @@ output "public_ip_address" {
   description = "Public IP address created for the staging environment"
   value       = module.network.public_ip_address
 }
+
+output "vm_name" {
+  description = "Name of the staging Linux virtual machine"
+  value       = module.compute.vm_name
+}
+
+output "admin_username" {
+  description = "Admin username for SSH access"
+  value       = module.compute.admin_username
+}
+
+output "website_url" {
+  description = "HTTP URL of the deployed static web app"
+  value       = "http://${module.network.public_ip_address}"
+}

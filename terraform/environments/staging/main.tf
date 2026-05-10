@@ -31,3 +31,16 @@ module "network" {
   subnet_address_prefix     = var.subnet_address_prefix
   ssh_source_address_prefix = var.ssh_source_address_prefix
 }
+
+module "compute" {
+  source = "../../modules/compute"
+
+  project_name         = var.project_name
+  environment          = var.environment
+  location             = var.location
+  resource_group_name  = azurerm_resource_group.main.name
+  network_interface_id = module.network.network_interface_id
+  vm_size              = var.vm_size
+  admin_username       = var.admin_username
+  ssh_public_key       = var.ssh_public_key
+}
