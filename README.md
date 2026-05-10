@@ -148,3 +148,20 @@ The static web application can be opened, for either environment, using:
 ```text
 http://<public-ip-address>
 ```
+
+## CI with GitHub Actions
+
+This project includes a GitHub Actions workflow that automatically validates the Terraform configuration on each push to the `main` branch and on pull requests.
+
+The workflow checks both environments:
+
+- `staging`
+- `production`
+
+It performs the following steps:
+
+- checks Terraform formatting with `terraform fmt -check`
+- initializes Terraform with `terraform init -backend=false`
+- validates the Terraform configuration with `terraform validate`
+
+The workflow does not run `terraform apply`. Infrastructure deployment is done manually from the local machine using the Azure CLI authentication.
